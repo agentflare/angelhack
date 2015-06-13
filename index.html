@@ -41,30 +41,30 @@
 <body>
 
     <!-- Navigation-->
-     <!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            
+            <div class="navbar-header">
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
         </div>
         <!-- /.container-->
-     <!--</nav>-->
+     </nav>
 
     <!-- Half Page Image Background Carousel Header -->
-    <header id="myCarousel" class="carousel slide">
-
-        <!-- Wrapper for Slides -->
+    <!--<header id="myCarousel" class="carousel slide">
+        <!-- Wrapper for Slides --/>
         <div class="carousel-inner">
             <div class="item active">
-                <!-- Set the first background image using inline CSS below. -->
-                <!--div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div-->
-				<div class="fill" style="background-image: url('pics/slideOnev2.png');"></div>
-            </div>
-            <div class="item">
-                <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
+                <!-- Set the first background image using inline CSS below. --/>
+                <!--div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div--/>
             </div>
         </div>
 
-        <!-- Controls -->
+        <!-- Controls --/>
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="icon-prev"></span>
         </a>
@@ -72,35 +72,27 @@
             <span class="icon-next"></span>
         </a>
 
-    </header>
-
+    </header>-->
+	<div class="container" id="DescriptionContainer">
+		<div>
+			Quick Description of what this site is about
+		</div>
+	</div>
     <!-- Page Content -->
     <div class="container">
-
         <div class="row">
-            <div class="col-lg-12">
-                <h1>Input</h1>
-				<div id="tabs">
-					<ul>
-						<li>
-							<a href="#a">Link:</a>
-						</li>
-						<li>
-							<a href="#b">Picture</a>
-						</li>
-					</ul>
-					<div id="a">
-						<div id="webInput">
-							Website Input: <input type="text" id="websiteInput"></input>
-						</div>
-					</div>
-					<div id="b">
-						<form action="/file-upload"
-							class="dropzone"
-						id="my-awesome-dropzone"></form>
-					</div>
-				</div>
+			<div id="urlInput">
+			Article URL: <input type="text" id="websiteInput"></input>
 			</div>
+			<div id="separator">
+				OR: 
+			</div>
+			<div id="imageInput">
+				<form action="/file-upload"
+					class="dropzone"
+				id="my-awesome-dropzone"></form>
+			</div>
+			
         </div>
     </div>
     <!-- /.container -->
@@ -109,25 +101,12 @@
     <script src="js/jquery.js"></script>
 	<!--input tabs-->
 	<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
-	<script type="text/javascript">
-    $('#tabs')
-        .tabs()
-        .addClass('ui-tabs-vertical ui-helper-clearfix');
-
-	</script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
 	<!--Image Upload Plugin-->
     <script src="js/dropzone.js"></script>
-	
-    <!-- Script to Activate the Carousel -->
-    <script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
-    </script>
 
 </body>
 
