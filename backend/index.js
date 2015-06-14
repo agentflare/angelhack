@@ -31,6 +31,9 @@ http.createServer(function(req, res) {
 			});
 		});
 	}
+	if(fileData) {
+		console.log(fileData);
+	}
 }).listen(port);
 
 console.log("server started at port ", port);
