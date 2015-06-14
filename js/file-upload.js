@@ -1,1 +1,1 @@
-alert($("#my-awesome-dropzone).val());
+alert($("#my-awesome-dropzone").val());
