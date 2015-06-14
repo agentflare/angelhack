@@ -1,6 +1,7 @@
 var fs = require('fs');
 var config = require('./config');
 var request = require('request');
+var checkError = require('./checkError');
 
 //issues uploading: may be file sync
 var extractFromPhoto = function(req, res, imageFile) {
@@ -27,6 +28,7 @@ var extractFromPhoto = function(req, res, imageFile) {
 		)
 		.on('response', function(response) {
 			console.log(response.statusCode, response.headers['content-type']);
+			checkError(req, res);
 		})
 		.on('data', function(chunk) {
 			tempStream.write(chunk);
@@ -36,7 +38,6 @@ var extractFromPhoto = function(req, res, imageFile) {
 			tempStream.close();
 			getConceptExtraction(req, res, tempPath);
 		});
-
 };
 
 //extracts concept from target url, write json to and end response
@@ -62,6 +63,7 @@ var getConceptExtraction = function(req, res, data) {
 		)
 		.on('response', function(response) {
 			console.log(response.statusCode, response.headers['content-type']);
+			checkError(req, res);
 			res.write("_testcb(\'");
 		})
 		.on('data', function(chunk) {
