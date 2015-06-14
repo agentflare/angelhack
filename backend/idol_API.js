@@ -40,6 +40,27 @@ var extractFromPhoto = function(req, res, imageFile) {
 		});
 };
 
+var extractFromUrl = function(req, res, searchUrl) {
+	console.log("responding to url ", searchUrl);
+	
+	var getUrl = config.idol_APIurl("extractconcepts", searchUrl);
+	console.log("POST: ", getUrl);
+	
+	request
+		.get(getUrl)
+		.on('response', function(response) {
+			console.log(response.statusCode, response.headers['content-type']);
+			checkError(req, res);
+		})
+		.on('data', function(chunk) {
+			res.write(chunk);
+		})
+		.on('end', function() {
+			console.log("finished concept extraction");
+			res.end();
+		});
+}
+
 //extracts concept from target url, write json to and end response
 var getConceptExtraction = function(req, res, data) {
 	console.log("responding to concept extract: ", data);
@@ -81,5 +102,6 @@ var getConceptExtraction = function(req, res, data) {
 
 
 module.exports = {
-	extractFromPhoto: extractFromPhoto
+	extractFromPhoto: extractFromPhoto,
+	extractFromUrl: extractFromUrl
 };
