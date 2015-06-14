@@ -6,7 +6,7 @@ var request = require('request');
 var extractFromPhoto = function(req, res, imageFile) {
 	console.log("responding to document ", imageFile);
 	
-	var tempPath = "/tmp/temp_" + (+new Date()).toString() + '.txt';
+	var tempPath = __dirname + "/tmp/temp_" + (+new Date()).toString() + '.txt';
 	var tempStream = fs.createWriteStream(tempPath);
 	
 	var getUrl = config.idol_APIurl("ocrdocument");
@@ -62,13 +62,18 @@ var getConceptExtraction = function(req, res, data) {
 		)
 		.on('response', function(response) {
 			console.log(response.statusCode, response.headers['content-type']);
+			res.write("_testcb(\'");
 		})
 		.on('data', function(chunk) {
 			res.write(chunk);
 		})
 		.on('end', function() {
 			console.log("finished Concept Extraction");
-			res.end();
+			res.end("')");
+			fs.unlink(data, function(err) {
+				if(err) { throw err; }
+				else console.log("deleted temp file");
+			});
 		});
 };
 
