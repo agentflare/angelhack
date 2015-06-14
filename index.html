@@ -22,9 +22,8 @@
 	<!--Dropzone CSS-->
 	<link href="css/dropzone.css" rel="stylesheet">
 	
-	
-	<!--Dropzone CSS-->
-	<link href="css/custom.css" rel="stylesheet">
+	<!--FlatUI CSS-->
+	<link href="dist/css/flat-ui.css" rel="stylesheet">
 	
 	<!--Fonts-->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
@@ -46,19 +45,23 @@
 	</div>
     <div class="container" id="contentContainer">
 		<div class="container" id="inputContainer">
-			<div id="imageInput">
-				<h1>Search Physical Newspapers</h1>
-				<form action="/file-upload"
-					class="dropzone"
-				id="my-awesome-dropzone"></form>
-				
+			<div class="container" id="imageInputContainer">
+				<div id="imageInput">
+					<h1>Search Physical Newspapers</h1>
+					<form action="/file-upload"
+						class="dropzone"
+					id="my-awesome-dropzone"></form>
+					
+				</div>
 			</div>
-			<div id="urlInput">
-				<h1>Search Similar Articles by Link</h1>
-			Article URL: <input type="text" id="websiteInput"></input>
-			<button id="submitLink">
-				Submit
-			</button>
+			<div class="container" id="urlInputContainer">
+				<div id="urlInput">
+					<h1>Search Similar Articles by Link</h1>
+				Article URL: <input type="text" id="websiteInput"></input>
+				<button id="submitLink" class="btn btn-default">
+					Submit
+				</button>
+				</div>
 			</div>
 		</div>
 		<div id="loadingImage">
