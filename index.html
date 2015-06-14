@@ -45,21 +45,28 @@
 		<h1>NAME HERE</h1>
 	</div>
     <div class="container" id="contentContainer">
-		<div id="imageInput">
-			<h1>Search Physical Newspapers</h1>
-			<form action="/file-upload"
-				class="dropzone"
-			id="my-awesome-dropzone"></form>
-			
+		<div class="container">
+			<div id="imageInput">
+				<h1>Search Physical Newspapers</h1>
+				<form action="/file-upload"
+					class="dropzone"
+				id="my-awesome-dropzone"></form>
+				
+			</div>
+			<div id="urlInput">
+				<h1>Search Similar Articles by Link</h1>
+			Article URL: <input type="text" id="websiteInput"></input>
+			<button id="submitLink">
+				Submit
+			</button>
+			</div>
 		</div>
-		<div id="urlInput">
-			<h1>Search Similar Articles by Link</h1>
-		Article URL: <input type="text" id="websiteInput"></input>
-		<button id="submitLink">
-			Submit
-		</button>
+		<div id="loading image">
+			<img src="dist/img/icons/png/pensils.png">
 		</div>
     </div>
+	
+	
     <!-- /.container -->
 
     <!-- jQuery -->
@@ -75,6 +82,9 @@
 	
 	<!--Submit Link listener-->
 	<script src="js/linkListener.js"></script>
+	
+	<!--Rotate Image-->
+    <script src="js/rotateLoadingImage.js"></script>
 	</div>
 </body>
 
