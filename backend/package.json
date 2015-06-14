@@ -5,6 +5,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "request": "^2.57.0"
+    "request": "^2.57.0",
+    "temp": "^0.8.3"
   }
 }

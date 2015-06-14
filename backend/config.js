@@ -2,19 +2,13 @@ var url = require('url');
 var querystring = require('querystring');
 
 //apiFunction: ""
-var getUrl = function(apiFunction, searchUrl) {
+var getUrl = function(apiFunction, textData) {
 	var requestUrl = {
 		protocol: "https",
 		hostname: "api.idolondemand.com",
-		pathname: "1/api/sync/" + apiFunction + "/v1",
+		pathname: "1/api/sync/" + apiFunction + "/v1"
 	};
-	if(searchUrl) {
-		requestUrl.search = querystring.stringify({url: searchUrl});
-		return url.format(requestUrl).toString() + "&apikey=" + this.idol_APIkey;
-	}
-	else {
-		return url.format(requestUrl).toString();
-	}
+	return url.format(requestUrl).toString();
 };
 
 module.exports = {
