@@ -157,7 +157,7 @@ img {
 .article {
   float:left;
   height: 150px;
-  width: 70%;
+  width: 90%;
   background-color: #ec7063;
   padding: 10px;
   margin: 10px;
@@ -165,10 +165,6 @@ img {
 
 .article-text {
   margin-left:180px;
-}
-
-.article-right {
-  float:right;
 }
 
 .article-container {
