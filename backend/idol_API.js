@@ -103,9 +103,39 @@ var getConceptExtraction = function(req, res, dataFile, callback) {
 		});
 };
 
-
+var filterData = function(data) {
+	var string="{\"data\":[";
+	var count=0;
+	var index=0;
+	
+	while(count<3){
+		string+="{";
+		string+="\"title\":";
+		var startParse=data.indexOf("<title>",index);
+		var endParse=data.indexOf("</title>",index);
+		string+="\""+data.substring(startParse+7,endParse)+"\""+",";
+		index=endParse+1;
+		
+		string+="\"pubDate\":";
+		var startParse=data.indexOf("<pubDate>",index);
+		var endParse=data.indexOf("</pubDate>",index);
+		string+="\""+data.substring(startParse+9,endParse)+"\"";
+		index=endParse+1;
+		
+		string+="}";
+		if(count!=2)
+		{
+			string+=",";
+		}
+		
+		count++;
+	}
+	string+="]}";
+	return string;
+}
 
 module.exports = {
 	extractFromPhoto: extractFromPhoto,
-	extractFromUrl: extractFromUrl
+	extractFromUrl: extractFromUrl,
+	filterData: filterData
 };

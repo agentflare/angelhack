@@ -22,9 +22,12 @@ http.createServer(function(req, res) {
 	if(urlData) {
 		idol_API.extractFromUrl(req, res, urlData, function(data) {
 			console.log(data, typeof data);
+			
 			googlenews(req, res, data, function(rssOut) {
-				console.log(rssOut);
-				res.end(rssOut);
+				//console.log(rssOut);
+				rssOutFiltered=idol_API.filterData(rssOut);
+				console.log(rssOutFiltered, typeof rssOutFiltered);
+				res.end(rssOutFiltered);
 			});
 		});
 	}
