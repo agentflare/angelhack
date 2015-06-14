@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>		
+		<!--Dropzone CSS-->
+		<link href="../css/dropzone.css" rel="stylesheet">
 	</head>
 	
 	<body>
@@ -21,7 +23,7 @@
 					
 					<div class="left column">
 						<div id="imageInput center">
-							<form action="js/file-upload.js" class="dropzone dz-clickable" id="my-awesome-dropzone">
+							<form action="../js/file-upload.js" class="dropzone dz-clickable" id="my-awesome-dropzone">
 								<div class="dz-default dz-message">
 									<h2>Photos of articles here</h2>
 								</div>
@@ -62,5 +64,20 @@
 				</div>
 			</div>
 		</div>
+			
+			<!-- jQuery -->
+			<script src="../js/jquery.js"></script>
+			
+			<!--Image Upload Plugin-->
+			<script src="../js/dropzone.js"></script>
+			
+			<!--Submit Link listener-->
+			<script src="../js/linkListener.js"></script>
+			
+			<script>
+				$("#my-awesome-dropzone").submit(function(){
+					alert("Image submitted");
+				});
+			</script>
 	</body>
 </html>

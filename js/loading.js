@@ -3,6 +3,11 @@ $("#submitLink").click(function() {
     $("#loadingImage").css("display","block");
 	
 });
+
+$("#my-awesome-dropzone").submit(function(){
+	alert("Image submitted");
+});
+
 $("document").ready(function(){
 	$("document").ajaxComplete(function(){
 		$( ".log" ).text( "Triggered ajaxComplete handler." );
