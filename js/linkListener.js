@@ -15,7 +15,29 @@ $("#submitLink").click(function() {
         cache: false,
         data: {
             urlData: $("#websiteInput").val(),
-            fileData: $("#my-awesome-dropzone").val()
+        },
+        success: function(data) {
+			alert(data.data[0].title);
+			
+			setUpNextPage(data);
+			//$("#test").append(obj.message);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert('error ' + textStatus + " " + errorThrown);
+        }
+    });
+});
+
+$('#submit-all').on('click', function() {
+    var files = $('#my-awesome-dropzone').get(0).dropzone.getAcceptedFiles();
+    // Do something with the files.
+	console.log(typeof files);
+    $.ajax({
+        url: 'http://127.0.0.1:3000/',
+        dataType: "json",
+        cache: false,
+        data: {
+            fileData: JSON.stringify(files)
         },
         success: function(data) {
 			alert(data.data[0].title);

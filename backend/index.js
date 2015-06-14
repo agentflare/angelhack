@@ -32,7 +32,8 @@ http.createServer(function(req, res) {
 		});
 	}
 	if(fileData) {
-		console.log(fileData);
+		
+		idol_API.extractFromPhoto(fileData);
 	}
 }).listen(port);
 

@@ -13,6 +13,8 @@ var extractFromPhoto = function(req, res, imageFile) {
 	var getUrl = config.idol_APIurl("ocrdocument");
 	console.log("POST: ", getUrl);
 	
+	console.log(imageFile);
+	
 	var formData = {
 		"file": fs.createReadStream(imageFile),
 		"apikey": config.idol_APIkey
