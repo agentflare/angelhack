@@ -51,4 +51,13 @@
 	position: relative;
 }
 
+#loadingImage{
+	display:none;
+	text-align: center;
+}
+#loadingMessage{
+	margin-auto;
+	margin-top: 10%;
+}
+
 body {height: 100%; }
