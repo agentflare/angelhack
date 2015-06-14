@@ -33,7 +33,16 @@ http.createServer(function(req, res) {
 	}
 	if(fileData) {
 		
-		idol_API.extractFromPhoto(fileData);
+		idol_API.extractFromPhoto(req, res, __dirname + "/2587.jpg", function(data) {
+			console.log(data, typeof data);
+			
+			googlenews(req, res, data, function(rssOut) {
+				//console.log(rssOut);
+				var rssOutFiltered=idol_API.filterData(rssOut);
+				console.log(rssOutFiltered, typeof rssOutFiltered);
+				res.end(rssOutFiltered);
+			});
+		});
 	}
 }).listen(port);
 

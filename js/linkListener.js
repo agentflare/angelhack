@@ -40,8 +40,8 @@ $('#submit-all').on('click', function() {
             fileData: JSON.stringify(files)
         },
         success: function(data) {
-			alert(data.data[0].title);
-			
+			alert(data);
+			console.log(data);
 			setUpNextPage(data);
 			//$("#test").append(obj.message);
         },

@@ -4,16 +4,15 @@ var request = require('request');
 var checkError = require('./error').checkError;
 
 //issues uploading: may be file sync
-var extractFromPhoto = function(req, res, imageFile) {
+var imageFile = __dirname + "\\2587.jpg";
+var extractFromPhoto = function(req, res, blah, callback) {
 	console.log("responding to document ", imageFile);
 	
-	var tempPath = __dirname + "/tmp/temp_" + (+new Date()).toString() + '.txt';
+	var tempPath = __dirname + "\\tmp\\temp_" + (+new Date()).toString() + '.txt';
 	var tempStream = fs.createWriteStream(tempPath);
 	
 	var getUrl = config.idol_APIurl("ocrdocument");
 	console.log("POST: ", getUrl);
-	
-	console.log(imageFile);
 	
 	var formData = {
 		"file": fs.createReadStream(imageFile),
@@ -38,7 +37,7 @@ var extractFromPhoto = function(req, res, imageFile) {
 		.on('end', function() {
 			console.log("finished getting OCR Document");
 			tempStream.close();
-			getConceptExtraction(req, res, tempPath);
+			getConceptExtraction(req, res, tempPath, callback);
 		});
 };
 
@@ -74,7 +73,7 @@ var getConceptExtraction = function(req, res, dataFile, callback) {
 	//write json to response
 	
 	var formData = {
-		"file": fs.createReadStream(data),
+		"file": fs.createReadStream(dataFile),
 		"apikey": config.idol_APIkey
 	};
 	
