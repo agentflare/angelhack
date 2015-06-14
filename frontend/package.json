@@ -1,0 +1,10 @@
+{
+  "name": "waffle",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bower": "^1.4.1"
+  }
+}
