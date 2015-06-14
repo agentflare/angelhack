@@ -2,7 +2,7 @@ var url = require('url');
 var querystring = require('querystring');
 
 //apiFunction: ""
-var getUrl = function(apiFunction, searchUrl) {
+var getIdolUrl = function(apiFunction, searchUrl) {
 	var requestUrl = {
 		protocol: "https",
 		hostname: "api.idolondemand.com",
@@ -17,7 +17,20 @@ var getUrl = function(apiFunction, searchUrl) {
 	}
 };
 
+//eats a query list
+var getGoogleUrl = function(query) {
+	var queryString = query.join(" ");
+	var requestUrl = {
+		protocol: "https",
+		hostname: "news.google.com",
+		pathname: "news/section",
+		search: querystring.stringify({"q": queryString})
+	};
+	return url.format(requestUrl).toString() + "&output=rss";
+};
+
 module.exports = {
 	idol_APIkey : '15b6a77a-2468-49e4-9bff-1acf3728939f',
-	idol_APIurl : getUrl
+	idol_APIurl : getIdolUrl,
+	google_newsUrl : getGoogleUrl
 };

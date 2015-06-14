@@ -4,6 +4,7 @@ var request = require('request');
 var url = require('url');
 var idol_API = require('./idol_API');
 var querystring = require('querystring');
+var googlenews = require('./googlenews');
 
 var port = 3000;
 
@@ -17,10 +18,14 @@ http.createServer(function(req, res) {
 	
 	res.setHeader('Access-Control-Allow-Origin', '*');
 	res.setHeader('Cache-Control', 'no-cache');
-	res.writeHead(200, {'Content-Type':'text/plain'});
+	res.writeHead(200, {'Content-Type':'application/rss+xml'});
 	if(urlData) {
 		idol_API.extractFromUrl(req, res, urlData, function(data) {
-			res.end(data);
+			console.log(data, typeof data);
+			googlenews(req, res, data, function(rssOut) {
+				console.log(rssOut);
+				res.end(rssOut);
+			});
 		});
 	}
 }).listen(port);
