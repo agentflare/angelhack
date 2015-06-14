@@ -4,8 +4,7 @@ $("#submitLink").click(function() {
         dataType: "json",
         cache: false,
         success: function(data) {
-			var obj=jQuery.parseJSON(data);
-			alert(obj.concepts[0].concept);
+			alert(data.concepts[0].concept);
 			//$("#test").append(obj.message);
         },
         error: function(jqXHR, textStatus, errorThrown) {

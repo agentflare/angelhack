@@ -64,14 +64,13 @@ var getConceptExtraction = function(req, res, data) {
 		.on('response', function(response) {
 			console.log(response.statusCode, response.headers['content-type']);
 			checkError(req, res);
-			res.write("_testcb(\'");
 		})
 		.on('data', function(chunk) {
 			res.write(chunk);
 		})
 		.on('end', function() {
 			console.log("finished Concept Extraction");
-			res.end("')");
+			res.end();
 			fs.unlink(data, function(err) {
 				if(err) { throw err; }
 				else console.log("deleted temp file");

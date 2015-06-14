@@ -1,12 +1,30 @@
-<html>
-	<head>
-		<link href="css/dropzone.css" rel="stylesheet">
-	</head>
-	<body>
-<!--Image Upload Plugin-->
-    <script src="js/dropzone.js"></script>
-	<form action="/file-upload"
-							class="dropzone"
-						id="my-awesome-dropzone"></form>
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>get test</title> 
+</head>
+<body>
+    <h1>Get Test</h1>
+    <div id="test"></div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+			$.ajax({
+				url: 'http://127.0.0.1:3000/',
+				dataType: "jsonp",
+				jsonpCallback: "_testcb",
+				cache: false,
+				success: function(data) {
+					var obj=jQuery.parseJSON(data);
+					$("#test").append(obj.message);
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+					alert('error ' + textStatus + " " + errorThrown);
+				}
+			});
+		});
+    </script>
+</body>
 </html>
