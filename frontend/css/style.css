@@ -5,7 +5,7 @@ html body {
   font-weight: 400;
   line-height: 1.45;
   color: #FFFFFF;
-  height: 90vh;
+  min-height: 90vh;
   margin: 0;
 }
 
@@ -147,3 +147,48 @@ fieldset[disabled] .btn-default.active {
   color: #bdc3c7;
   background-color: #fff;
   }
+
+img {
+  height: 150px;
+  width: 150px;
+  float:left;
+}
+
+.article {
+  float:left;
+  height: 150px;
+  width: 70%;
+  background-color: #ec7063;
+  padding: 10px;
+  margin: 10px;
+}
+
+.article-text {
+  margin-left:180px;
+}
+
+.article-right {
+  float:right;
+}
+
+.article-container {
+  margin-top:30px;
+  height:800px;
+}
+
+.loading-container {
+  height: 400px;
+  text-align:center;
+  background-color: #ec7063;
+}
+
+h3 {
+  font-size: 42px;
+  padding-top: 60px;
+}
+
+.loading {
+  margin-top:20px;
+  height: 100px;
+  width: 100px;
+}
