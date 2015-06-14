@@ -28,6 +28,7 @@
 									<h2>Photos of articles here</h2>
 								</div>
 							</form>
+							<button id="submit-all" class="btn btn-default">Submit all files</button>
 						</div>
 					</div>
 					
@@ -109,6 +110,14 @@
 			
 			<!--Submit Link listener-->
 			<script src="../js/linkListener.js"></script>
+			
+			<script>
+				$('#submit-all').on('click', function() {
+			    var files = $('#my-awesome-dropzone').get(0).dropzone.getAcceptedFiles();
+				    // Do something with the files.
+					console.log(files);
+				});
+			</script>
 			
 			<script>
 				$("#my-awesome-dropzone").submit(function(){
