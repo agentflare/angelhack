@@ -40,11 +40,13 @@ var extractFromPhoto = function(req, res, imageFile) {
 		});
 };
 
-var extractFromUrl = function(req, res, searchUrl) {
+var extractFromUrl = function(req, res, searchUrl, callback) {
 	console.log("responding to url ", searchUrl);
 	
 	var getUrl = config.idol_APIurl("extractconcepts", searchUrl);
 	console.log("POST: ", getUrl);
+	
+	var data = "";
 	
 	request
 		.get(getUrl)
@@ -53,17 +55,17 @@ var extractFromUrl = function(req, res, searchUrl) {
 			checkError(req, res);
 		})
 		.on('data', function(chunk) {
-			res.write(chunk);
+			data += chunk;
 		})
 		.on('end', function() {
 			console.log("finished concept extraction");
-			res.end();
+			return callback(data);
 		});
 }
 
 //extracts concept from target url, write json to and end response
-var getConceptExtraction = function(req, res, data) {
-	console.log("responding to concept extract: ", data);
+var getConceptExtraction = function(req, res, dataFile, callback) {
+	console.log("responding to concept extract: ", dataFile);
 
 	var getUrl = config.idol_APIurl("extractconcepts");
 	console.log("POST: ", getUrl);
@@ -73,6 +75,8 @@ var getConceptExtraction = function(req, res, data) {
 		"file": fs.createReadStream(data),
 		"apikey": config.idol_APIkey
 	};
+	
+	var data = "";
 	
 	request
 		.post(
@@ -87,15 +91,15 @@ var getConceptExtraction = function(req, res, data) {
 			checkError(req, res);
 		})
 		.on('data', function(chunk) {
-			res.write(chunk);
+			data += chunk;
 		})
 		.on('end', function() {
 			console.log("finished Concept Extraction");
-			res.end();
-			fs.unlink(data, function(err) {
+			fs.unlink(dataFile, function(err) {
 				if(err) { throw err; }
 				else console.log("deleted temp file");
 			});
+			return callback(data);
 		});
 };
 

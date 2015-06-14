@@ -19,7 +19,9 @@ http.createServer(function(req, res) {
 	res.setHeader('Cache-Control', 'no-cache');
 	res.writeHead(200, {'Content-Type':'text/plain'});
 	if(urlData) {
-		idol_API.extractFromUrl(req, res, urlData);
+		idol_API.extractFromUrl(req, res, urlData, function(data) {
+			res.end(data);
+		});
 	}
 }).listen(port);
 
