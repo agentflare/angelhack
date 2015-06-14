@@ -18,14 +18,14 @@ http.createServer(function(req, res) {
 	
 	res.setHeader('Access-Control-Allow-Origin', '*');
 	res.setHeader('Cache-Control', 'no-cache');
-	res.writeHead(200, {'Content-Type':'application/rss+xml'});
+	res.writeHead(200, {'Content-Type':'application/json'});
 	if(urlData) {
 		idol_API.extractFromUrl(req, res, urlData, function(data) {
 			console.log(data, typeof data);
 			
 			googlenews(req, res, data, function(rssOut) {
 				//console.log(rssOut);
-				rssOutFiltered=idol_API.filterData(rssOut);
+				var rssOutFiltered=idol_API.filterData(rssOut);
 				console.log(rssOutFiltered, typeof rssOutFiltered);
 				res.end(rssOutFiltered);
 			});
