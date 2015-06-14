@@ -118,6 +118,12 @@ var filterData = function(data) {
 		string+="\""+data.substring(startParse+7,endParse)+"\""+",";
 		index=endParse+1;
 		
+		string+="\"link\":";
+		var startParse=data.indexOf("<link>",index);
+		var endParse=data.indexOf("</link>",index);
+		string+="\""+data.substring(startParse+6,endParse)+"\""+",";
+		index=endParse+1;
+		
 		string+="\"pubDate\":";
 		var startParse=data.indexOf("<pubDate>",index);
 		var endParse=data.indexOf("</pubDate>",index);
