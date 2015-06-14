@@ -1,3 +1,7 @@
+function setUpNextPage(){
+	$("#loadingImage").css("display","none");
+}
+
 $("#submitLink").click(function() {
     $.ajax({
         url: 'http://127.0.0.1:3000/',
@@ -9,6 +13,8 @@ $("#submitLink").click(function() {
         },
         success: function(data) {
 			alert(data.concepts[0].concept);
+			
+			setUpNextPage();
 			//$("#test").append(obj.message);
         },
         error: function(jqXHR, textStatus, errorThrown) {
